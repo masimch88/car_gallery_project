@@ -53,7 +53,7 @@
                         echo $user->first_name;
                         echo $user->last_name . "<br>";
 
-
+                        //$test= new Test();
 
 
                         ?>
