@@ -27,15 +27,20 @@
 
                       //  echo $row['username'];
 
-                        $id=2;
-                        $data = User::find_all_user();
-                       $data = User::find_user_by_id($id);
+                        
+                       /// $data = User::find_all_user();
+                        $data = User::find_user_by_id(2);
 
-                        while($row=mysqli_fetch_assoc($data))
-                        {
-                            echo $row['username']."<br>";
-                            echo $row['password']."<br>";
-                        }
+                        $user = User::instansitation($data);
+
+                
+                        echo $user->id;
+                        echo $user->username;
+                        echo $user->password;
+                        echo $user->first_name;
+                        echo $user->last_name;
+    
+
 
 
 
