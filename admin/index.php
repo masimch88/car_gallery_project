@@ -28,20 +28,30 @@
                       //  echo $row['username'];
 
                         
-                       /// $data = User::find_all_user();
-                        $data = User::find_user_by_id(2);
+                       // $data = User::find_all_user();
+                       // $data = User::find_user_by_id(2);
 
-                        $user = User::instansitation($data);
+                      $users = User::find_all_user();
+                        
 
-                
+                       foreach($users as $user)
+                        {
+
+                            echo $user->id;
+                            echo $user->username;
+                            echo $user->password;
+                            echo $user->first_name;
+                            echo $user->last_name . "<br>";
+
+                        }
+                       
+                       $user = User::find_user_by_id(2);
+
                         echo $user->id;
                         echo $user->username;
                         echo $user->password;
                         echo $user->first_name;
-                        echo $user->last_name;
-    
-
-
+                        echo $user->last_name . "<br>";
 
 
 

@@ -15,18 +15,27 @@ class User{
     }
 
     public static function find_user_by_id($id){
-        $result_set = self::find_this_query("select * from users  WHERE id=$id");
-        $row=mysqli_fetch_assoc($result_set);
-        return $row;
+
+        $the_result_array = self::find_this_query("select * from users  WHERE id=$id LIMIT 1");
+
+        //array shift will return only 1st item of array 
+        return !empty( $the_result_array ) ? array_shift($the_result_array) : false;
     }
 
     public static function find_this_query($sql){
         global $database;
         $result_set= $database->query($sql);
-        return $result_set;
+        $the_object_array = array();
+
+        while($row = mysqli_fetch_assoc($result_set))
+        {
+            $the_object_array[] = self::instansitation($row);
+        }
+
+        return $the_object_array;
     }
 
-    public static function instansitation($the_record){
+    public static function instansitation($row){
         $the_object = new User();
 
         /*while($row=mysqli_fetch_assoc($result_set))
@@ -38,7 +47,7 @@ class User{
             $the_object->last_name  = $row['last_name'];
         }*/
 
-        foreach($the_record as $the_attribute=>$value)
+        foreach($row as $the_attribute=>$value)
         {
             if($the_object->has_the_attribute($the_attribute)){
                 $the_object->$the_attribute = $value;
@@ -55,13 +64,6 @@ class User{
     }
 
 }
-
-
-
-
-
-
-
 
 
 

@@ -19,7 +19,7 @@ class Database {
     }
 
     public function query($sql){
-
+        ////it works as mysqli_query
         $result = $this->connection->query($sql);
         
         $this->confirm_query($result);
