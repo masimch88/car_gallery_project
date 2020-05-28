@@ -1,6 +1,13 @@
 <?php ob_start(); ?>
 <?php require_once("init.php"); ?>
 
+<?php /*
+    if(!$session->is_signed_in())
+    {
+        redirect("login.php");//////it is a userdefined function
+    }*/
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

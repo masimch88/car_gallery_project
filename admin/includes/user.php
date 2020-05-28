@@ -63,6 +63,19 @@ class User{
         return array_key_exists($the_attribute , $object_properties);
     }
 
+    public static function user_verify($username,$password)
+    {
+        global $database;
+
+        $sql="SELECT  * FROM users WHERE username = '$username' AND password = '$password'";
+
+        $the_result_array = self::find_this_query($sql);
+
+        //array shift will return only 1st item of array 
+        return !empty( $the_result_array ) ? array_shift($the_result_array) : false;
+
+    }
+
 }
 
 
