@@ -1,6 +1,6 @@
 <?php
 
-
+/////echo __FILE__."<br>";
 class Session{
 
     private $signed_in = false;
@@ -39,17 +39,11 @@ class Session{
 
     }
 
-
-
-
-
-
-
-
     public function is_signed_in()
     {
         return $this->signed_in;
     }
+    
     public function login($user)
     {
         if($user)
@@ -74,7 +68,6 @@ class Session{
             $this->signed_in =true;
         }
         else{
-            unset($this->user_id);
             $this->signed_in = false;
         }
     }
