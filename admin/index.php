@@ -26,7 +26,7 @@ if(!$session->is_signed_in())
                         </h1>
                         <?php 
 
-                        $sql = "SELECT * FROM users where id=1";
+                       /* $sql = "SELECT * FROM users where id=1";
                         $result = $database->query($sql);
                         $row = mysqli_fetch_assoc($result);
                         $database->the_insert_id();
@@ -51,7 +51,7 @@ if(!$session->is_signed_in())
 
                         }
                        
-                       $user = User::find_user_by_id(2);
+                       $user = User::find_user_by_id(6);
 
                         echo $user->id;
                         echo $user->username;
@@ -59,17 +59,19 @@ if(!$session->is_signed_in())
                         echo $user->first_name;
                         echo $user->last_name . "<br>";
 
-                        //$test = new Test();
+                        //$test = new Test();*/
 
-                        
-
-
+                        //$jaweria = new User();
 
 
+                    //  $user = User::find_user_by_id(6);
 
+                    //  $user->last_name = "Zameer";
+                    //  $user->update();
 
+                        $aqsa=User::find_user_by_id(3);
+                        $aqsa->delete();
 
-                        
 
 
 

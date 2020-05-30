@@ -10,7 +10,8 @@ class User{
     public $last_name;
 
 
-    public static function find_all_user(){
+    public static function find_all_user()
+    {
         return self::find_this_query("select * from users");
     }
 
@@ -22,7 +23,8 @@ class User{
         return !empty( $the_result_array ) ? array_shift($the_result_array) : false;
     }
 
-    public static function find_this_query($sql){
+    public static function find_this_query($sql)
+    {
         global $database;
         $result_set= $database->query($sql);
         $the_object_array = array();
@@ -35,7 +37,8 @@ class User{
         return $the_object_array;
     }
 
-    public static function instansitation($row){
+    public static function instansitation($row)
+    {
         $the_object = new User();
 
         /*while($row=mysqli_fetch_assoc($result_set))
@@ -96,6 +99,32 @@ class User{
         {
             return false;
         }
+    }
+
+    public function update()
+    {
+        global $database;
+
+        $sql = "UPDATE users SET ";
+        $sql .= "username= '". $database->escape_string($this->username)    . "', "; 
+        $sql .= "password= '". $database->escape_string($this->password)    . "', "; 
+        $sql .= "first_name= '". $database->escape_string($this->first_name)  . "', "; 
+        $sql .= "last_name= '". $database->escape_string($this->last_name)   . "' "; 
+        $sql .= " WHERE id = ". $database->escape_string($this->id);
+
+        $database->query($sql);
+
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+
+    }
+
+    public function delete()
+    {
+        global $database;
+        
+        $sql="delete from users where id='". $database->escape_string($this->id) ."'";
+        $database->query($sql);
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false;
     }
 
 }/////////end of user cls
