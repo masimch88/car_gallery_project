@@ -36,22 +36,18 @@ if(!$session->is_signed_in())
                         
                        // $data = User::find_all_user();
                        // $data = User::find_user_by_id(2);
-
-                      $users = User::find_all_user();
+*/
+                      $photos = Photo::find_all();
                         
 
-                       foreach($users as $user)
+                       foreach($photos as $photo)
                         {
-
-                            echo $user->id;
-                            echo $user->username;
-                            echo $user->password;
-                            echo $user->first_name;
-                            echo $user->last_name . "<br>";
+                            
+                            echo $photo->title;
 
                         }
                        
-                       $user = User::find_user_by_id(6);
+                       /* $user = User::find_by_id(6);
 
                         echo $user->id;
                         echo $user->username;
@@ -61,13 +57,15 @@ if(!$session->is_signed_in())
 
                         //$test = new Test();*/
 
-                        $jaweria = new User();
-                        //$jaweria= User::find_user_by_id(9);
-                        $jaweria->username = "asd";
-                        $jaweria->password = "123";
-                        $jaweria->first_name= "hunzala          ";
-                        $jaweria->last_name = " Luqman";
+                       $jaweria = new Photo();
 
+                        //$jaweria= User::find_user_by_id(9);
+
+                        $jaweria->title= "new user name";
+                         
+
+
+                       
                         $jaweria->save();
 
 
@@ -77,8 +75,8 @@ if(!$session->is_signed_in())
                     //  $user->last_name = "Zameer";
                     //  $user->update();
 
-                     //  $aqsa=User::find_user_by_id(5);
-                     // $aqsa->delete();
+                      // $aqsa= User::find_user_by_id(14);
+                     //    $aqsa->delete();
 
                     //   $shazeen = new User();
                         /*$shazeen = User::find_user_by_id(7);
