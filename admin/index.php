@@ -61,7 +61,12 @@ if(!$session->is_signed_in())
 
                         //$test = new Test();*/
 
-                        //$jaweria = new User();
+                        $jaweria = new User();
+
+                        $jaweria->username = "hunzala";
+
+                        $jaweria->save();
+
 
 
                     //  $user = User::find_user_by_id(6);
@@ -69,9 +74,17 @@ if(!$session->is_signed_in())
                     //  $user->last_name = "Zameer";
                     //  $user->update();
 
-                        $aqsa=User::find_user_by_id(3);
-                        $aqsa->delete();
+                     //  $aqsa=User::find_user_by_id(5);
+                     // $aqsa->delete();
 
+                    //   $shazeen = new User();
+                        /*$shazeen = User::find_user_by_id(7);
+
+                        $shazeen->username = "shazeen zameer";
+                        $shazeen->save(); */
+
+
+                        
 
 
 
