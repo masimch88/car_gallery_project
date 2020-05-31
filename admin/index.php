@@ -62,8 +62,11 @@ if(!$session->is_signed_in())
                         //$test = new Test();*/
 
                         $jaweria = new User();
-
-                        $jaweria->username = "hunzala";
+                        //$jaweria= User::find_user_by_id(9);
+                        $jaweria->username = "asd";
+                        $jaweria->password = "123";
+                        $jaweria->first_name= "hunzala          ";
+                        $jaweria->last_name = " Luqman";
 
                         $jaweria->save();
 

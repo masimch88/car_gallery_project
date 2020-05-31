@@ -41,11 +41,16 @@ function isempty($v)
 
 function sanatization($arr)
 {
+   // $properties = array();
+
     foreach($arr as $var => $val)
         {
-            $_POST[$var] = filter_var($val, FILTER_SANITIZE_STRING);
+            $arr[$var] = filter_var($val, FILTER_SANITIZE_STRING);
             trim($val);
         }
+    //print_r($arr); 
+    
+    return $arr;
 }
 
 
