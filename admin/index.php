@@ -35,8 +35,8 @@ if(!$session->is_signed_in())
 
                         
                        // $data = User::find_all_user();
-                       // $data = User::find_user_by_id(2);
-*/
+                 // $data = User::find_user_by_id(2);
+
                       $photos = Photo::find_all();
                         
 
@@ -57,16 +57,16 @@ if(!$session->is_signed_in())
 
                         //$test = new Test();*/
 
-                       $jaweria = new Photo();
+                       //$jaweria = new Photo();
 
                         //$jaweria= User::find_user_by_id(9);
 
-                        $jaweria->title= "new user name";
+                        //$jaweria->title= "new user name";
                          
 
 
                        
-                        $jaweria->save();
+                       // $jaweria->save();
 
 
 
@@ -84,9 +84,11 @@ if(!$session->is_signed_in())
                         $shazeen->username = "shazeen zameer";
                         $shazeen->save(); */
 
-
                         
+                        
+                        echo INCLUDE_PATH . "<br>"; 
 
+                        echo SITE_ROOT;
 
 
 
