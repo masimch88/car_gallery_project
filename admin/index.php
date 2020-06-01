@@ -46,11 +46,11 @@ if(!$session->is_signed_in())
                             echo $photo->title;
 
                         }
-                       */
+                    
                         $user = Photo::find_by_id(6);
 
                         echo $user->title;
-                       /* echo $user->username;
+                        echo $user->username;
                         echo $user->password;
                         echo $user->first_name;
                         echo $user->last_name . "<br>";
