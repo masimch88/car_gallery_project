@@ -5,8 +5,8 @@
 class Photo extends Db_object
 {
     protected static $db_table = "photos";
-    protected static $db_table_fields = array('photo_id', 'title', 'description', 'file_name', 'type', 'size');
-    public $photo_id;
+    protected static $db_table_fields = array('id', 'title', 'description', 'file_name', 'type', 'size');
+    public $id;
     public $title;
     public $description;
     public $file_name;
@@ -50,7 +50,55 @@ class Photo extends Db_object
             
         }
     }
+    public function picture_path()
+    {
+        return $this->upload_directory.DS.$this->file_name;
+    }
+    public function save()
+    {
+        if($this->id)
+        {
+            $this->update();
+        }
+        else if(!empty($this->errors))
+        {
+            return false;
+        }
+        if(empty($this->file_name) || empty($this->tmp_path) )
+        {
+            $this->errors[] = "The file is not available";
+            return false;
+        }
 
+        $target_path = SITE_ROOT . DS . "admin" . DS . $this->upload_directory . DS . $this->file_name;
+
+        if(move_uploaded_file($this->tmp_path, $target_path))
+        {
+            if($this->create())
+            {
+                unset($this->tmp_path);
+                return true;
+            }
+        }
+        else
+        {
+            $this->errors[] = "folder permission error.";
+            return false;
+        }
+    }
+
+    public function delete_photo()
+    {
+        if($this->delete())
+        {
+            $target_path = SITE_ROOT . DS . "admin" . DS . "images" . DS . $this->file_name;
+            return unlink($target_path) ? true : false;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 
 

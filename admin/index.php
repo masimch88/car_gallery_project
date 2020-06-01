@@ -46,11 +46,11 @@ if(!$session->is_signed_in())
                             echo $photo->title;
 
                         }
-                       
-                       /* $user = User::find_by_id(6);
+                       */
+                        $user = Photo::find_by_id(6);
 
-                        echo $user->id;
-                        echo $user->username;
+                        echo $user->title;
+                       /* echo $user->username;
                         echo $user->password;
                         echo $user->first_name;
                         echo $user->last_name . "<br>";
@@ -86,9 +86,9 @@ if(!$session->is_signed_in())
 
                         
                         
-                        echo INCLUDE_PATH . "<br>"; 
+                       //  echo INCLUDE_PATH . "<br>"; 
 
-                        echo SITE_ROOT;
+                       // echo SITE_ROOT;
 
 
 
