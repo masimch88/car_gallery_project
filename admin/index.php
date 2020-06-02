@@ -35,8 +35,8 @@ if(!$session->is_signed_in())
 
                         
                        // $data = User::find_all_user();
-                       // $data = User::find_user_by_id(2);
-*/
+                 // $data = User::find_user_by_id(2);
+
                       $photos = Photo::find_all();
                         
 
@@ -46,10 +46,10 @@ if(!$session->is_signed_in())
                             echo $photo->title;
 
                         }
-                       
-                       /* $user = User::find_by_id(6);
+                    
+                        $user = Photo::find_by_id(6);
 
-                        echo $user->id;
+                        echo $user->title;
                         echo $user->username;
                         echo $user->password;
                         echo $user->first_name;
@@ -57,13 +57,20 @@ if(!$session->is_signed_in())
 
                         //$test = new Test();*/
 
-                       $jaweria = new Photo();
+                       //$jaweria = new Photo();
 
                         //$jaweria= User::find_user_by_id(9);
 
-                        $jaweria->title= "new user name";
+                        //$jaweria->title= "new user name";
                          
+<<<<<<< HEAD
                         $jaweria->save();
+=======
+
+
+                       
+                       // $jaweria->save();
+>>>>>>> aecbd6261572eab00ab850eaff6aa7785e0e18c0
 
 
 
@@ -80,6 +87,18 @@ if(!$session->is_signed_in())
 
                         $shazeen->username = "shazeen zameer";
                         $shazeen->save(); */
+<<<<<<< HEAD
+=======
+
+                        
+                        
+                       //  echo INCLUDE_PATH . "<br>"; 
+
+                       // echo SITE_ROOT;
+
+
+
+>>>>>>> aecbd6261572eab00ab850eaff6aa7785e0e18c0
                         ?>
 
 
