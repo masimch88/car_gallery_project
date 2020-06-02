@@ -1,12 +1,7 @@
 <?php
 class Db_object
 {
-<<<<<<< HEAD
    // protected static $db_table = "users";
-=======
-    //protected static $db_table = "users";
-
->>>>>>> aecbd6261572eab00ab850eaff6aa7785e0e18c0
 
     public static function find_all(){
         return static::find_by_query("select * from " . static::$db_table . " ");
@@ -127,6 +122,7 @@ class Db_object
         {
             $properties_pairs[] = "{$key}='{$value}'";
         }
+        //print_r($properties_pairs);
 
         $sql = "UPDATE " . static::$db_table . " SET ";
         $sql .= implode("," , $properties_pairs); 

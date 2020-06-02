@@ -5,9 +5,11 @@
 class Photo extends Db_object
 {
     protected static $db_table = "photos";
-    protected static $db_table_fields = array('id', 'title', 'description', 'file_name', 'type', 'size');
+    protected static $db_table_fields = array('id', 'title', 'caption', 'alternate_text', 'description', 'file_name', 'type', 'size');
     public $id;
     public $title;
+    public $caption;
+    public $alternate_text;
     public $description;
     public $file_name;
     public $type;
@@ -54,6 +56,7 @@ class Photo extends Db_object
     {
         return $this->upload_directory.DS.$this->file_name;
     }
+    
     public function save()
     {
         if($this->id)

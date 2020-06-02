@@ -80,18 +80,6 @@ if(!$session->is_signed_in())
 
                         $shazeen->username = "shazeen zameer";
                         $shazeen->save(); */
-<<<<<<< HEAD
-=======
-
-                        
-                        
-                       //  echo INCLUDE_PATH . "<br>"; 
-
-                       // echo SITE_ROOT;
-
-
-
->>>>>>> aecbd6261572eab00ab850eaff6aa7785e0e18c0
                         ?>
 
 
