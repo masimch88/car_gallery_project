@@ -63,14 +63,7 @@ if(!$session->is_signed_in())
 
                         //$jaweria->title= "new user name";
                          
-<<<<<<< HEAD
                         $jaweria->save();
-=======
-
-
-                       
-                       // $jaweria->save();
->>>>>>> aecbd6261572eab00ab850eaff6aa7785e0e18c0
 
 
 
