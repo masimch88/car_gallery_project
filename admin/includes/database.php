@@ -1,7 +1,7 @@
 <?php 
 
 require_once("config.php");
-
+///create DB
 class Database {
 
     public $connection;
@@ -19,9 +19,8 @@ class Database {
     }
 
     public function query($sql){
-        ////it works as mysqli_query
+        ////it works as mysqli_query( $data=mysqli_query($conn,$sql);)
         $result = $this->connection->query($sql);
-        
         $this->confirm_query($result);
         return $result;
     }
@@ -34,13 +33,12 @@ class Database {
         
     }
     public function escape_string($string){
-
         $escaped_string = $this->connection->real_escape_string($string);
-        
         return $escaped_string;
     }
 
     public function the_insert_id(){
+        // Print auto-generated id
         return mysqli_insert_id($this->connection);
     }
 

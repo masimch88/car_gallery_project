@@ -11,8 +11,6 @@ class User  extends db_object
     public $first_name;
     public $last_name;
 
-
-
     public static function user_verify($username,$password)
     {
         global $database;
@@ -21,14 +19,12 @@ class User  extends db_object
 
         $the_result_array = self::find_by_query($sql);
 
-        //array shift will return only 1st item of array 
+        //The array_shift() function removes the first element from an array, 
+        //and returns the value of the removed element.
         return !empty( $the_result_array ) ? array_shift($the_result_array) : false;
 
     }
-
-    
-
-    
+   
 
 }/////////end of user cls
 

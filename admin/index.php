@@ -63,9 +63,6 @@ if(!$session->is_signed_in())
 
                         $jaweria->title= "new user name";
                          
-
-
-                       
                         $jaweria->save();
 
 
@@ -83,13 +80,6 @@ if(!$session->is_signed_in())
 
                         $shazeen->username = "shazeen zameer";
                         $shazeen->save(); */
-
-
-                        
-
-
-
-
                         ?>
 
 

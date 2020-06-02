@@ -1,14 +1,9 @@
 <?php
-
-
 class Db_object
 {
-    protected static $db_table = "users";
+   // protected static $db_table = "users";
 
-
-
-    public static function find_all()
-    {
+    public static function find_all(){
         return static::find_by_query("select * from " . static::$db_table . " ");
     }
 
@@ -79,7 +74,7 @@ class Db_object
     protected function properties()
     {
         $properties = array();
-
+        // replace self by static
         foreach(static::$db_table_fields as $db_field)
         {
             if(property_exists($this , $db_field))
@@ -129,7 +124,7 @@ class Db_object
         }
 
         $sql = "UPDATE " . static::$db_table . " SET ";
-        $sql .= implode(", ", $properties_pairs); 
+        $sql .= implode("," , $properties_pairs); 
         $sql .= " WHERE id = ". $database->escape_string($this->id);
 
         $database->query($sql);
