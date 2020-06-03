@@ -35,6 +35,18 @@ class User  extends db_object
         return !empty( $the_result_array ) ? array_shift($the_result_array) : false;
 
     }
+    public function delete_user()
+    {
+        if($this->delete())
+        {
+            $target_path = SITE_ROOT . DS . "admin" . DS . "images" . DS . $this->user_image;
+            return unlink($target_path) ? true : false;
+        }
+        else
+        {
+            return false;
+        }
+    }
    
 
 }/////////end of user cls
