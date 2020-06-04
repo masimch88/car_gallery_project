@@ -24,6 +24,7 @@ if(!$session->is_signed_in())
                             userS
                             <small>Subheading</small>
                         </h1>
+                        
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
@@ -32,6 +33,7 @@ if(!$session->is_signed_in())
                                 <i class="fa fa-file"></i> Blank Page
                             </li>
                         </ol>
+                        <a href="add_user.php" class="btn btn-primary">Add User</a>
                         <div class="col-md-12">
                             <table class="table table-hover">
                                 <thead>

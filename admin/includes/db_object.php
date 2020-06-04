@@ -1,7 +1,29 @@
 <?php
+
+
 class Db_object
 {
-   // protected static $db_table = "users";
+    public $id;
+
+    public $type;
+    public $size;
+    public $tmp_path;
+    
+    public $errors = array();
+    
+    public static $upload_directory = "images";
+    public static $upload_errors_array = array(
+        UPLOAD_ERR_OK => "There is no error.",
+        UPLOAD_ERR_INI_SIZE => "The upload file Exceed the upload_max_file_size directory",
+        UPLOAD_ERR_FORM_SIZE => "The upload file Exceed the max_file_size directive",
+        UPLOAD_ERR_PARTIAL => "The uplaod file was only partially uploaded",
+        UPLOAD_ERR_NO_FILE => "No file was uploaded",
+        UPLOAD_ERR_NO_TMP_DIR => "Missing a temporary folder",
+        UPLOAD_ERR_CANT_WRITE => "Failed to write file to disk",
+        UPLOAD_ERR_EXTENSION => "A php extension stop the file upload"
+    );
+
+
 
     public static function find_all(){
         return static::find_by_query("select * from " . static::$db_table . " ");
@@ -65,7 +87,7 @@ class Db_object
         $object_properties = get_object_vars($this);
         return array_key_exists($the_attribute , $object_properties);
     }
-
+    ////this function not usefull anymore as both photo and user are uploading file
     public function save()
     {
         return isset($this->id) ? $this->update() : $this->create();
@@ -122,6 +144,7 @@ class Db_object
         {
             $properties_pairs[] = "{$key}='{$value}'";
         }
+
         //print_r($properties_pairs);
 
         $sql = "UPDATE " . static::$db_table . " SET ";
