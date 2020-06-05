@@ -61,10 +61,8 @@ class User  extends db_object
 
             if(move_uploaded_file($this->tmp_path, $target_path))
             {
-                
                     unset($this->tmp_path);
                     return true;
-                
             }
             else
             {

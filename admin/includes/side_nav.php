@@ -11,11 +11,12 @@
                         <a href="upload.php"><i class="fa fa-fw fa-table"></i> uploads</a>
                     </li>
                     <li>
-                        <a href="comments.php"><i class="fa fa-fw fa-edit"></i> comments</a>
+                        <a href="photos.php"><i class="fa fa-fw fa-table"></i> photos</a>
                     </li>
                     <li>
-                        <a href="photos.php"><i class="fa fa-fw fa-edit"></i> photos</a>
+                        <a href="comments.php"><i class="fa fa-fw fa-edit"></i> comments</a>
                     </li>
+                    
                     
                 </ul>
             </div>
