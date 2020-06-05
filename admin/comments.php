@@ -21,7 +21,7 @@ if(!$session->is_signed_in())
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            userS
+                        Comments
                             <small>Subheading</small>
                         </h1>
                         
@@ -33,7 +33,6 @@ if(!$session->is_signed_in())
                                 <i class="fa fa-file"></i> Blank Page
                             </li>
                         </ol>
-                        <a href="add_user.php" class="btn btn-primary">Add User</a>
                         <div class="col-md-12">
                             <table class="table table-hover">
                                 <thead>
@@ -54,7 +53,7 @@ if(!$session->is_signed_in())
                                         
                                         <td><?php echo $comment->author; ?>
                                             <div class="action_link">
-                                                <a href="delete_user.php?id=<?php echo $comment->id; ?>">Delete</a>
+                                                <a href="delete_comment.php?id=<?php echo $comment->id; ?>">Delete</a>
                                                 <a href="edit_user.php?id=<?php echo $comment->id; ?>">Edit</a>
                                                 <a href="">View</a>
                                             </div>
