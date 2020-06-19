@@ -77,11 +77,6 @@ class Photo extends Db_object
     }
 
     
-   
-    
-    
-    
-
     public function delete_photo()
     {
         if($this->delete())
