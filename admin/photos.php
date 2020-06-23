@@ -22,7 +22,6 @@ if(!$session->is_signed_in())
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             PHOTOS
-                            <small>Subheading</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li>
