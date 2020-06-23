@@ -26,18 +26,12 @@ if(isset($_POST['submit']))
     {
         $message = "problem in commenting";
     }
-        
-
 }
 else
 {
     $author = "";
     $body = "";
 }
-
-
-
-
 
 ?>
 

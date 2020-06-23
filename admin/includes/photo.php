@@ -1,7 +1,5 @@
 <?php
 
-
-
 class Photo extends Db_object
 {
     protected static $db_table = "photos";

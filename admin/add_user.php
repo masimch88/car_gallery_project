@@ -54,15 +54,13 @@ else
             $message = "User is succesfully uploaded ";
         }
         else{
+            //join function return returns a string from the elements of an array. always use two parameters 
             $message = join("<br>", $user->errors);
         }
     }
 
 
 ?>
-
-
-
 
 
 

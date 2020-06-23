@@ -88,6 +88,7 @@ class Db_object
         return array_key_exists($the_attribute , $object_properties);
     }
     ////this function not usefull anymore as both photo and user are uploading file
+    
     public function save()
     {
         return isset($this->id) ? $this->update() : $this->create();

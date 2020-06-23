@@ -23,6 +23,7 @@ class Paginate {
     }
     public function page_total()
     {
+        // rounds a number UP to the nearest integer, if necessary
         return ceil($this->items_total_count/$this->items_per_page);
     }
     public function has_next()

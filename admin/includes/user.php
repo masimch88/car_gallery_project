@@ -56,7 +56,8 @@ class User  extends db_object
                 $this->errors[] = "The file is not available";
                 return false;
             }
-
+ //self is for use in static member functions to allow you to access static member variables(static $db_table ). 
+ //$this is used in non-static member functions(public $user_image;)
             $target_path = SITE_ROOT . DS . "admin" . DS . self::$upload_directory . DS . $this->user_image;
 
             if(move_uploaded_file($this->tmp_path, $target_path))
