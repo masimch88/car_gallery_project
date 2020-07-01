@@ -38,7 +38,7 @@ class Database {
     }
 
     public function the_insert_id(){
-        // Print auto-generated id
+        //Returns the auto generated id used in the latest query
         return mysqli_insert_id($this->connection);
     }
 
