@@ -12,7 +12,9 @@
     $message = "";
     if(isset($_POST['submit']))
     {
+        //sanatization
         $photo = new Photo();
+        
         $photo->title = $_POST['title'];
         $photo->set_file($_FILES['file_upload']);
 
