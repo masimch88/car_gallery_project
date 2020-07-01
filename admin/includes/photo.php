@@ -28,6 +28,7 @@ class Photo extends Db_object
         }
         else
         {
+            //The basename() function returns the filename from a path.
             $this->file_name = basename($file['name']);
             $this->tmp_path  = $file['tmp_name'];
             $this->type      = $file['type'];
@@ -53,7 +54,9 @@ class Photo extends Db_object
         }
 
         $target_path = SITE_ROOT . DS . "admin" . DS . self::$upload_directory . DS . $this->file_name;
-
+//The move_uploaded_file() function moves an uploaded file to a new destination.
+//This function only works on files uploaded via PHP's HTTP POST upload mechanism.
+//If the destination file already exists, it will be overwritten.
         if(move_uploaded_file($this->tmp_path, $target_path))
         {
             if($this->create())
