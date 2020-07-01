@@ -4,13 +4,10 @@
 class Db_object
 {
     public $id;
-
     public $type;
     public $size;
     public $tmp_path;
-    
     public $errors = array();
-    
     public static $upload_directory = "images";
     public static $upload_errors_array = array(
         UPLOAD_ERR_OK => "There is no error.",
@@ -22,17 +19,17 @@ class Db_object
         UPLOAD_ERR_CANT_WRITE => "Failed to write file to disk",
         UPLOAD_ERR_EXTENSION => "A php extension stop the file upload"
     );
-
-
+ //Declaring class properties or methods as static makes them accessible without needing an instantiation of the class. 
+//A property declared as static cannot be accessed with an instantiated class object (though a static method can).
 
     public static function find_all(){
+
+//A static method can be accessed from a method in the same class using the self keyword and double colon (::)
         return static::find_by_query("select * from " . static::$db_table . " ");
     }
 
     public static function find_by_id($id){
-
         $the_result_array = static::find_by_query("select * from " . static::$db_table . "  WHERE id=$id LIMIT 1");
-
         //array shift will return only 1st item of array 
         return !empty( $the_result_array ) ? array_shift($the_result_array) : false;
     }
@@ -41,7 +38,6 @@ class Db_object
         global $database;
         $result_set= $database->query($sql);
         $the_object_array = array();
-
         while($row = mysqli_fetch_assoc($result_set))
         {
             $the_object_array[] = static::instansitation($row);
@@ -56,9 +52,8 @@ class Db_object
         /*The function get_called_class() can be used to retrieve a string
           with the name of the called class and static:: introduces its scope
             jis class k through  function call ho ga usi k object bany ga */
-
+        //Returns the class name. Returns FALSE if called from outside a class.
         $calling_class = get_called_class();
-
         $the_object = new $calling_class;
 
         /*while($row=mysqli_fetch_assoc($result_set))
@@ -83,7 +78,8 @@ class Db_object
 
     private function has_the_attribute($the_attribute)
     {
-
+        //It returns an associative array of defined object properties for the specified object. 
+        //if a property have not been assigned a value, it will be returned with a NULL value.
         $object_properties = get_object_vars($this);
         return array_key_exists($the_attribute , $object_properties);
     }
@@ -107,7 +103,7 @@ class Db_object
         }
         return $properties;
     }
-
+//the property or method can be accessed within the class and by classes derived from that class.
     protected function clean_properties()
     {
         return sanatization($this->properties());
@@ -118,7 +114,7 @@ class Db_object
         global $database;
         
         $properties = $this->clean_properties();
-
+//Join array elements with a string
         $sql ="INSERT INTO " . static::$db_table . "(" . implode(",",array_keys($this->properties())) . ")";
         $sql .= "VALUES('" . implode("','",array_values($this->properties())) . "')";
 
@@ -153,7 +149,8 @@ class Db_object
         $sql .= " WHERE id = ". $database->escape_string($this->id);
 
         $database->query($sql);
-
+//The affected_rows / mysqli_affected_rows() function returns the number of affected rows 
+//in the previous SELECT, INSERT, UPDATE, REPLACE, or DELETE query.
         return (mysqli_affected_rows($database->connection) == 1) ? true : false;
 
     }
@@ -161,7 +158,7 @@ class Db_object
     public function delete()
     {
         global $database;
-        
+//Escapes a string for use in a mysql_query   
         $sql="delete from " . static::$db_table . " where id='". $database->escape_string($this->id) ."'";
         $database->query($sql);
         return (mysqli_affected_rows($database->connection) == 1) ? true : false;

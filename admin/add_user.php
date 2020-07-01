@@ -35,7 +35,6 @@ else
 
 ?>
 
-
 <?php 
     $message = "";
     if(isset($_POST['submit']))
