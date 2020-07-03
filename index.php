@@ -8,9 +8,15 @@ $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
 $items_per_page = 4;
 
 $items_total_count = count(Photo::find_all());
-
+//Pagination is the task of dividing the potential result into pages
+//and retrieving the required pages, one by one on demand
 
 $paginate = new Paginate($page, $items_per_page, $items_total_count);
+
+//The OFF SET value is also most often used together with the LIMIT keyword. 
+//The OFF SET value allows us to specify which row to start from retrieving data
+//The offset parameter will be set to NULL if another value is not available
+
 $sql =  "SELECT * FROM Photos LIMIT {$items_per_page} OFFSET {$paginate->offset()}";
 $photos = Photo::find_by_query($sql);
 
@@ -22,6 +28,7 @@ $photos = Photo::find_by_query($sql);
             <div class="col-md-12">
                 
                 <div class="thumbnails row">
+
                     <?php foreach($photos as $photo) : ?>
                         
                         <div class="col-xs-6 col-md-3">
@@ -30,15 +37,19 @@ $photos = Photo::find_by_query($sql);
                             </a>
                          </div>
                     <?php endforeach; ?>
+
                 </div>
                 <div class="row">
                     <ul class="pager">
+
                         <?php
                             if($paginate->page_total() > 1)
                             {
                                 if($paginate->has_next())
                                 {
-                                    echo "<li class='next'><a href='index.php?page={$paginate->next()}'>next</a></li>";
+                                    //two way to write 
+                                    //1:html tag is embeded in php
+                                    echo "<li class='next'><a href='index.php?page={$paginate->next()}'>Next</a></li>";
                                 }
 
                                 for ($i=1; $i <= $paginate->page_total() ; $i++) { 
@@ -54,7 +65,8 @@ $photos = Photo::find_by_query($sql);
 
                                 if($paginate->has_previous())
                                 {?>
-                                   <li class='previous'><a href='index.php?page=<?php $paginate->previous(); ?>'>previous</a></li>
+                                    <!-- 2: simple html tag-->
+                                   <li class='previous'><a href='index.php?page=<?php $paginate->previous(); ?>'>Previous</a></li>
                                 <?php
                                 }
                             }
