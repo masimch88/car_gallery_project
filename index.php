@@ -50,12 +50,16 @@ $photos = Photo::find_by_query($sql);
                                     //two way to write 
                                     //1:html tag is embeded in php
                                     echo "<li class='next'><a href='index.php?page={$paginate->next()}'>Next</a></li>";
+                                    /*
+                                       <li class='next'><a href='index.php?page=<?php $paginate->next(); ?>'>next</a></li>
+                                     */
                                 }
 
                                 for ($i=1; $i <= $paginate->page_total() ; $i++) { 
                                    if($i==$paginate->current_page)
                                    {
-                                       echo "<li class='active'><a href='index.php?page={$i}'>{$i}</a></li>";
+                                       echo "<li class='active'><a href='index.php?page={$i}'>{$i}</a></li>"; 
+                                    
                                    }
                                    else{
                                     echo "<li ><a href='index.php?page={$i}'>{$i}</a></li>";
@@ -67,6 +71,9 @@ $photos = Photo::find_by_query($sql);
                                 {?>
                                     <!-- 2: simple html tag-->
                                    <li class='previous'><a href='index.php?page=<?php $paginate->previous(); ?>'>Previous</a></li>
+                                    <!--           
+                                   echo "<li class='previous'><a href='index.php?page={$paginate->previous()}'>previous</a></li>"
+                                   --> 
                                 <?php
                                 }
                             }
