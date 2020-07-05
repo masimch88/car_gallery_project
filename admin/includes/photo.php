@@ -91,9 +91,16 @@ class Photo extends Db_object
         }
     }
 
-    public function ajax_display($photo_id)
+    public static function display_sidebar_data($photo_id)
     {
-        
+        $photo = Photo::find_by_id($photo_id);
+
+        $output = "<a class='thumbnail' href='#' ><img width='100' src='{$photo->picture_path()}' ></a>";
+        $output .= "<p?>{$photo->file_name}</p>";
+        $output .= "<p?>{$photo->type}</p>";
+        $output .= "<p?>{$photo->size}</p>";
+
+        echo $output;
 
     }
 

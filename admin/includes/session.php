@@ -13,6 +13,7 @@ class Session{
         session_start(); 
         $this->visitor_count();
         $this->check_the_login();
+        $this->check_message();
 
     }
 
@@ -90,6 +91,7 @@ class Session{
 
 
 $session = new Session();
+$message = $session->message();
 
 
 ?>

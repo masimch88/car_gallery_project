@@ -7,12 +7,7 @@
     }
     if(isset($_POST['photo_id']))
     {
-        $photo = Photo::find_by_id($_POST['photo_id']);
-
-        echo $photo->title."<br>";
-        echo $photo->caption."<br>";
-        echo $photo->description."<br>";
-        echo $photo->file_name."<br>";
+        Photo::display_sidebar_data($_POST['photo_id']);
     }
 
 ?>

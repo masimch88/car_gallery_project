@@ -33,14 +33,19 @@ else
             if(empty($_FILES['file_upload']))
             {
                 $user->save();
+                $session->message("User has been updated");
+                redirect("users.php");
+                
             }
             else
             {
                 $user->set_file($_FILES['file_upload']);
                 $user->upload_photo();
                 $user->save();
-
-                redirect("edit_user.php?id={$user->id}");
+                $session->message("User has been updated");
+               // redirect("edit_user.php?id={$user->id}");
+               redirect("users.php");
+              
             }
         }
        
