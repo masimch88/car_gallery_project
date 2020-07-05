@@ -98,6 +98,12 @@ class User  extends db_object
             return false;
         }
     }
+
+    public function ajax_save_user_image($user_image, $user_id){
+        $this->user_image = $user_image;
+        $this->id = $user_id;
+        $this->save();
+    }
    
 
 }/////////end of user cls

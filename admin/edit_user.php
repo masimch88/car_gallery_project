@@ -123,7 +123,7 @@ else
                                     <input type="file" name="file_upload">
                                 </div>
                                 <div class="info-box-delete pull-left">
-                                    <a  href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger ">Delete</a>   
+                                    <a id="user-id" href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger ">Delete</a>   
                                 </div>
                                 <input type="submit"   name="update" value="Update" class="btn btn-primary pull-right">
                             </div>
