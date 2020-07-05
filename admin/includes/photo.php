@@ -91,6 +91,11 @@ class Photo extends Db_object
         }
     }
 
+    public function ajax_display($photo_id)
+    {
+        
+
+    }
 
 
 

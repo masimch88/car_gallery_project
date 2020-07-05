@@ -87,7 +87,7 @@ else
                                 <i class="fa fa-file"></i> Edit user
                             </li>
                         </ol>
-                        <div class="col-md-6">
+                        <div class="col-md-6 user_image_box">
                             <a href="#" data-toggle="modal" data-target="#photo-library"><img class="img-responsive" src="<?php echo $user->image_path_and_placeholder(); ?>" alt=""></a>
                             
                         </a>
